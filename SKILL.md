@@ -1,12 +1,7 @@
 ---
 name: bro
 description: "Re-explain the previous assistant message in a much simpler way — for when the reply made you go 'bro what'. Use /bro to get a plain-language version of the last answer."
-version: 1.0.0
-author: Hermes Agent + Luka
 license: MIT
-metadata:
-  hermes:
-    tags: [productivity, communication, simplify]
 ---
 
 # /bro — say it simpler
