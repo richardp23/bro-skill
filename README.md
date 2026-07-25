@@ -58,17 +58,33 @@ cd bro-skill && git pull && ./install.sh
 
 (Or just re-run the one-liner — it's idempotent.)
 
-## Example
+## Examples
 
-**Assistant:**
+**🧱 Software architecture**
 
 > The refactor introduces an idempotent reconciliation layer atop the event-sourced aggregate, thereby mitigating dual-write anomalies during the migration window while preserving backward compatibility with the legacy projection contract.
 
-**You:** `/bro`
-
-**Assistant:**
+**`/bro`**
 
 > Ok so basically: we added a safety layer that makes sure old and new data don't get out of sync while we're switching systems. Nothing breaks for anything still using the old system. That's it.
+
+**☸️ Kubernetes panic**
+
+> The CrashLoopBackOff stems from the liveness probe's failure threshold being exceeded due to the application's blocking initialization sequence, which starves the kubelet's health-check endpoint of a timely response…
+
+**`/bro`**
+
+> Bro, your app takes too long to start up. Kubernetes keeps asking "you alive?" and your app is too busy booting to answer, so k8s kills it and restarts it — over and over. Give it more time (`initialDelaySeconds`) or move the slow startup work into an init container.
+
+**🇧🇷 Same-language rule — PT-BR in, PT-BR out**
+
+> A otimização do funil de conversão demanda a implementação de uma estratégia omnichannel de nurturing, visando a maximização do LTV através da redução do churn…
+
+**`/bro`**
+
+> Mano, traduzindo: a gente quer que o cliente compre mais e fique mais tempo. Menos cliente indo embora + cada um gastando mais = mais dinheiro. Era isso que aquela sopa de sigla queria dizer.
+
+**More in [`examples/`](examples/):** [git panic](examples/git-panic.md) (watch the commands survive verbatim), [consultant-speak](examples/consultant-speak.md), [full Kubernetes exchange](examples/kubernetes.md), [full architecture exchange](examples/software-architecture.md).
 
 ## The rules baked in
 
@@ -87,6 +103,7 @@ cd bro-skill && git pull && ./install.sh
 bro-skill/
 ├── SKILL.md     # the entire skill — one file, that's the beauty
 ├── install.sh   # detects your agent CLIs and drops /bro into each
+├── examples/    # before/after pairs across domains and languages
 ├── README.md    # you are here
 └── LICENSE      # MIT
 ```
